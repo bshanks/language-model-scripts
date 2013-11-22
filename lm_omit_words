@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+
+
+open(LM, $ARGV[0]);
+open(WORDS_OMIT, $ARGV[1]);
+
+while (<WORDS_OMIT>) {
+    chomp;
+    $words_to_omit{uc($_)} = 1;
+} 
+
+while (<LM>) {
+    if (/([-\.0-9<>]+)\s+([\w\.'0-9-<>]+)(.*)/) {
+	$forbidden =0;
+	if ($words_to_omit{$2}) {$forbidden =1}
+	$maybe_other_words =$3;
+#	print "^^^$maybe_other_words\n";
+while ($maybe_other_words=~ /\s([\w\.'0-9-]+)/g)
+    {if ($words_to_omit{$1}) {$forbidden =1}}
+	if (! $forbidden ) {print}
+    }
+    else {#print "***\n";
+print}
+} 

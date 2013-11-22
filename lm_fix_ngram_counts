@@ -1,0 +1,8 @@
+#!/bin/sh
+
+onegrams=` perl -e 'undef $/; $_=<>; /(?:^|\n)\\\\data\\\\.*\\\\1-grams:\n(.*?)\n\\\\2-grams:/s; $_=$1; $c=0; while (/\n/g) {$c++} print $c' $1`
+twograms=` perl -e 'undef $/; $_=<>; /(?:^|\n)\\\\data\\\\.*\\\\2-grams:\n(.*?)\n\\\\3-grams:/s; $_=$1; $c=0; while (/\n/g) {$c++} print $c' $1`
+threegrams=` perl -e 'undef $/; $_=<>; /(?:^|\n)\\\\data\\\\.*\\\\3-grams:\n(.*?)\n\\\\end\\\\/s; $_=$1; $c=0; while (/\n/g) {$c++} print $c' $1`
+perl -e 's/ngram 1=.*/ngram 1='$onegrams'/;' -pi $1
+perl -e 's/ngram 2=.*/ngram 2='$twograms'/;' -pi $1
+perl -e 's/ngram 3=.*/ngram 3='$threegrams'/;' -pi $1

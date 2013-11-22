@@ -1,0 +1,9 @@
+#!/bin/sh
+
+corpus=$1 
+
+compgen -c | (while read cmd; do if [[ ${#cmd} > 1 ]]; then echo $cmd; fi; done) > all_cmds_longer_than_1_char
+
+perl -lane 'open(FH, "all_cmds_longer_than_1_char"); while (<FH>) {chomp; if ($_ eq $F[1]) {print "     $F[0] $F[1]";last }}' ${corpus}_corpus_wordcounts > ${corpus}_corpus_wordcounts_cmds
+
+mv -f ${corpus}_corpus_wordcounts_cmds ${corpus}_corpus_wordcounts

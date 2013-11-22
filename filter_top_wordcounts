@@ -1,0 +1,5 @@
+#!/bin/sh
+
+corpus=$1
+perl -e 'while (<>) {/\s*(\d+)/; if ($1 >= '$2') {$o=1;} if ($o) {print}}' ${corpus}_corpus_wordcounts_filtered  > ${corpus}_corpus_top_wordcounts
+

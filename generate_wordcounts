@@ -1,0 +1,5 @@
+#!/bin/sh
+
+for corpus
+  do wordcounts ${corpus}_corpus_raw.txt > ${corpus}_corpus_wordcounts
+done

@@ -1,0 +1,58 @@
+#!/usr/bin/perl
+
+s/(^|(?<=( |\t)))QUOTATION_MARK($|(?=( |\t)))/VOICE_LITERAL_QUOTATION_MARK/ig;
+s/(^|(?<=( |\t)))PERCENT_SIGN($|(?=( |\t)))/VOICE_LITERAL_PERCENT_SIGN/ig;
+s/(^|(?<=( |\t)))AMPERSAND($|(?=( |\t)))/VOICE_LITERAL_AMPERSAND/ig;
+s/(^|(?<=( |\t)))APOSTROPHE($|(?=( |\t)))/VOICE_LITERAL_APOSTROPHE/ig;
+s/(^|(?<=( |\t)))LEFT_PARENS($|(?=( |\t)))/VOICE_LITERAL_LEFT_PARENS/ig;
+s/(^|(?<=( |\t)))RIGHT_PARENS($|(?=( |\t)))/VOICE_LITERAL_RIGHT_PARENS/ig;
+s/(^|(?<=( |\t)))COMMA($|(?=( |\t)))/VOICE_LITERAL_COMMA/ig;
+s/(^|(?<=( |\t)))HYPHEN($|(?=( |\t)))/VOICE_LITERAL_HYPHEN/ig;
+s/(^|(?<=( |\t)))PERIOD($|(?=( |\t)))/VOICE_LITERAL_PERIOD/ig;
+s/(^|(?<=( |\t)))SLASH($|(?=( |\t)))/VOICE_LITERAL_SLASH/ig;
+s/(^|(?<=( |\t)))COLON($|(?=( |\t)))/VOICE_LITERAL_COLON/ig;
+s/(^|(?<=( |\t)))SEMICOLON($|(?=( |\t)))/VOICE_LITERAL_SEMICOLON/ig;
+s/(^|(?<=( |\t)))QUESTION_MARK($|(?=( |\t)))/VOICE_LITERAL_QUESTION_MARK/ig;
+
+
+s/(^|(?<=( |\t)))\"DOUBLE-QUOTE($|(?=( |\t)))/QUOTATION_MARK/ig;
+s/(^|(?<=( |\t)))%PERCENT($|(?=( |\t)))/PERCENT_SIGN/ig;
+s/(^|(?<=( |\t)))&AMPERSAND($|(?=( |\t)))/AMPERSAND/ig;
+s/(^|(?<=( |\t)))'SINGLE-QUOTE($|(?=( |\t)))/APOSTROPHE/ig;
+s/(^|(?<=( |\t)))\(LEFT-PAREN($|(?=( |\t)))/LEFT_PARENS/ig;
+s/(^|(?<=( |\t)))\)RIGHT-PAREN($|(?=( |\t)))/RIGHT_PARENS/ig;
+s/(^|(?<=( |\t))),COMMA($|(?=( |\t)))/COMMA/ig;
+s/(^|(?<=( |\t)))-HYPHEN($|(?=( |\t)))/HYPHEN/ig;
+s/(^|(?<=( |\t)))\.PERIOD($|(?=( |\t)))/PERIOD/ig;
+s/(^|(?<=( |\t)))\/SLASH($|(?=( |\t)))/SLASH/ig;
+s/(^|(?<=( |\t))):COLON($|(?=( |\t)))/COLON/ig;
+s/(^|(?<=( |\t)));SEMI-COLON($|(?=( |\t)))/SEMICOLON/ig;
+s/(^|(?<=( |\t)))\?QUESTION-MARK($|(?=( |\t)))/QUESTION_MARK/ig;
+
+# s/(^|(?<=( |\t)))A\.($|(?=( |\t)))/ALFA/ig;
+# s/(^|(?<=( |\t)))B\.($|(?=( |\t)))/BRAVO/ig;
+# s/(^|(?<=( |\t)))C\.($|(?=( |\t)))/CHARLIE/ig;
+# s/(^|(?<=( |\t)))D\.($|(?=( |\t)))/DELTA/ig;
+# s/(^|(?<=( |\t)))E\.($|(?=( |\t)))/ECHO/ig;
+# s/(^|(?<=( |\t)))F\.($|(?=( |\t)))/FOXTROT/ig;
+# s/(^|(?<=( |\t)))G\.($|(?=( |\t)))/GINGER/ig;
+# s/(^|(?<=( |\t)))H\.($|(?=( |\t)))/HENRY/ig;
+# s/(^|(?<=( |\t)))I\.($|(?=( |\t)))/INDIA/ig;
+# s/(^|(?<=( |\t)))J\.($|(?=( |\t)))/JULIET/ig;
+# s/(^|(?<=( |\t)))K\.($|(?=( |\t)))/KILO/ig;
+# s/(^|(?<=( |\t)))L\.($|(?=( |\t)))/LIMA/ig;
+# s/(^|(?<=( |\t)))M\.($|(?=( |\t)))/MICHAEL/ig;
+# s/(^|(?<=( |\t)))N\.($|(?=( |\t)))/NOVEMBER/ig;
+# s/(^|(?<=( |\t)))O\.($|(?=( |\t)))/OSCAR/ig;
+# s/(^|(?<=( |\t)))P\.($|(?=( |\t)))/PETER/ig;
+# s/(^|(?<=( |\t)))Q\.($|(?=( |\t)))/QUEBEC/ig;
+# s/(^|(?<=( |\t)))R\.($|(?=( |\t)))/ROBBIE/ig;
+# s/(^|(?<=( |\t)))S\.($|(?=( |\t)))/SIERRA/ig;
+# s/(^|(?<=( |\t)))T\.($|(?=( |\t)))/TANGO/ig;
+# s/(^|(?<=( |\t)))U\.($|(?=( |\t)))/UNIFORM/ig;
+# s/(^|(?<=( |\t)))V\.($|(?=( |\t)))/VICTOR/ig;
+# s/(^|(?<=( |\t)))W\.($|(?=( |\t)))/WHISKEY/ig;
+# s/(^|(?<=( |\t)))X\.($|(?=( |\t)))/X-RAY/ig;
+# s/(^|(?<=( |\t)))Y\.($|(?=( |\t)))/YANKEE/ig;
+# s/(^|(?<=( |\t)))Z\.($|(?=( |\t)))/ZULU/ig;
+

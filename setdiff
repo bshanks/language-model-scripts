@@ -1,0 +1,23 @@
+#!/usr/bin/perl
+
+
+open(WORDS, $ARGV[0]);
+open(WORDS_OMIT, $ARGV[1]);
+
+while (<WORDS>) {
+    chomp; 
+    $_=uc($_);
+    $wc{$_} = 1;
+} 
+
+while (<WORDS_OMIT>) {
+    chomp;
+    $words_to_omit{uc($_)} = 1;
+} 
+
+
+for $key (keys %wc) {
+    if (! $words_to_omit{$key}) {
+	    print "$key\n"
+	}
+}

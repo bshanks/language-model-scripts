@@ -1,0 +1,19 @@
+#!/bin/sh
+
+cp -f $1 tmp_lm
+perl -e 'undef $/; $_=<>; s/<UNK>/<unk>/g; print' -i tmp_lm
+perl -e 'undef $/; $_=<>; s/<unk>/<UNK>/; print' -i tmp_lm
+perl -e 'undef $/; $_=<>; s/^.*<unk>.*\n//gm; print' -i tmp_lm
+# onegrams=` perl -e 'undef $/; $_=<>; /\n\\\\data\\\\.*\\\\1-grams:\n(.*?)\n\\\\2-grams:/s; $_=$1; $c=0; while (/\n/g) {$c++} print $c' tmp_lm`
+# twograms=` perl -e 'undef $/; $_=<>; /\n\\\\data\\\\.*\\\\2-grams:\n(.*?)\n\\\\3-grams:/s; $_=$1; $c=0; while (/\n/g) {$c++} print $c' tmp_lm`
+# threegrams=` perl -e 'undef $/; $_=<>; /\n\\\\data\\\\.*\\\\3-grams:\n(.*?)\n\\\\end\\\\/s; $_=$1; $c=0; while (/\n/g) {$c++} print $c' tmp_lm`
+# perl -e 's/ngram 1=.*/ngram 1='$onegrams'/;' -pi tmp_lm
+# perl -e 's/ngram 2=.*/ngram 2='$twograms'/;' -pi tmp_lm
+# perl -e 's/ngram 3=.*/ngram 3='$threegrams'/;' -pi tmp_lm
+lm_fix_ngram_counts tmp_lm
+perl -e 'undef $/; $_=<>; s/(.*UNK.*\n)//; $unknownLine = $1; s/\\1-grams:\s*\n/\\1-grams:\n$unknownLine/; print' -i tmp_lm
+mv tmp_lm $1_only_1gram_UNK.arpa 
+
+perl -e 'if (/^(\\|ngram)/) {print} else {print uc($_)}' -ni $1_only_1gram_UNK.arpa 
+perl -e 's/<S>/<s>/g; s/<\/S>/<\/s>/g; ' -pi $1_only_1gram_UNK.arpa 
+
